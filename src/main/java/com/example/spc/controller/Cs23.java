@@ -1,6 +1,7 @@
 package com.example.spc.controller;
 
 
+import com.example.spc.cs.aop.ConferenceServiceImpl;
 import com.example.spc.entity.Wcha;
 import com.example.spc.mapper.WchaMapper;
 import com.example.spc.util.NonStaticResourceHttpRequestHandler;
@@ -34,6 +35,9 @@ public class Cs23 {
 
     @Autowired
     private WchaMapper wchaMapper;
+
+    @Autowired
+    private ConferenceServiceImpl conferenceService;
 
     SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
 
@@ -139,5 +143,10 @@ public class Cs23 {
             response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             response.setCharacterEncoding(StandardCharsets.UTF_8.toString());
         }
+    }
+
+    @GetMapping("/aop")
+    public void aop(){
+        conferenceService.conference();
     }
 }
