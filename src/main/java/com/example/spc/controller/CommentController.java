@@ -7,6 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+
+
+//注解实现redis增删查改
+//spring.cache.redis.time-to-live=60000  设置有效期
 /**
  * @Author: HardyYao
  * @Date: 2021/6/19
