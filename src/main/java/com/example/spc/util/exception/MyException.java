@@ -1,4 +1,4 @@
-package com.example.spc.util;
+package com.example.spc.util.exception;
 
 /**
  * 自定义异常类

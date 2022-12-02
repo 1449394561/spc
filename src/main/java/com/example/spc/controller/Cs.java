@@ -3,8 +3,9 @@ package com.example.spc.controller;
 import com.example.spc.entity.Wcha;
 import com.example.spc.mapper.WchaMapper;
 import com.example.spc.service.WchaService;
-import com.example.spc.util.MyException;
-import com.example.spc.util.TokenUtil;
+import com.example.spc.util.exception.MyException;
+import com.example.spc.util.loginfliter.TokenUtil;
+import com.example.spc.util.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,6 +22,17 @@ public class Cs {
 
     @Autowired
     private WchaMapper wchaMapper;
+
+
+    //统一异常处理
+    @RequestMapping(value = "/exception")
+    public R list(Integer id) {
+        Integer er=444;
+        id.equals(er);
+        Wcha list = wchaMapper.selectById(id);
+        return R.ok().data("itms", list).message("用户列表");
+    }
+
 
 
     @PostMapping("/login")
