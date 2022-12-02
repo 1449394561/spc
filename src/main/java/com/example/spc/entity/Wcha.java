@@ -7,13 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.io.Serializable;
 import java.sql.Blob;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName("wcha")
 @Data
-public class Wcha {
+public class Wcha implements Serializable {
 
     @TableId(type = IdType.AUTO)
     private Integer id;

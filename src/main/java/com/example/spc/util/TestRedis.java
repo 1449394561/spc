@@ -27,7 +27,7 @@ public class TestRedis {
 
     //添加数据(key/value)
     public void save(){
-        jedis.set("jedis", "jedis_2");
+        jedis.set("jedis", "jedis_3");
     }
 
     //查询所有

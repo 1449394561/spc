@@ -50,6 +50,10 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
             <groupId>redis.clients</groupId>
             <artifactId>jedis</artifactId>
             <version>2.9.0</version>
@@ -66,14 +70,12 @@
             <artifactId>spring-boot-starter-security</artifactId>
         </dependency>
 
-<<<<<<< HEAD
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-aop</artifactId>
         </dependency>
 
-=======
->>>>>>> 67104d2446b0e7401ab97ff796ff5a7475a64e9d
+
     </dependencies>
 
     <build>
