@@ -1,7 +1,10 @@
 package com.example.spc.controller;
 
+import com.example.spc.entity.ApiDto;
+import com.example.spc.entity.Cc;
 import com.example.spc.entity.Wcha;
 import com.example.spc.mapper.WchaMapper;
+import com.example.spc.service.CsServer;
 import com.example.spc.service.WchaService;
 import com.example.spc.util.exception.MyException;
 import com.example.spc.util.loginfliter.TokenUtil;
@@ -15,7 +18,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/cs")
-public class Cs {
+public class CsController {
 
     @Autowired
     private WchaService wchaServicec;
@@ -23,6 +26,18 @@ public class Cs {
     @Autowired
     private WchaMapper wchaMapper;
 
+    @Autowired
+    private CsServer csServer;
+
+
+    @GetMapping("/cc")
+    public String cc(){
+//        Cc cc=new Cc();
+//        cc.setOn("name");
+//        cc.setIn("888");
+        System.out.println(wchaMapper.cc("888"));
+        return "200";
+    }
 
     //统一异常处理
     @RequestMapping(value = "/exception")
@@ -102,9 +117,30 @@ public class Cs {
         return "200";
     }
 
-    @GetMapping("/ho")
-    public int ho(){
-         int f=1;
-        return f;
+    @PostMapping("/api")
+    public String api(@RequestBody ApiDto type){
+        System.out.println(type.getType());
+        return "2000";
     }
+
+//    @PostMapping("/dy")
+//    public void dy(){
+//        RestTemplate restTemplate = new RestTemplate();
+//        String url = "http://localhost:9090/cs/api";
+//
+//        //LinkedMultiValueMap一个键对应多个值，对应format-data的传入类型
+//        LinkedMultiValueMap<String, String> request = new LinkedMultiValueMap<>();
+//        //入参
+//        request.set("username","baihui");
+//        request.set("password", "123456");
+//        request.set("sex", "0");
+//        request.set("telephone", "13172724946");
+//        //请求
+//        String result = restTemplate.postForObject(url,request,String.class);
+//        System.out.println(result);
+//
+//        ResponseEntity<String> responseEntity = restTemplate.postForEntity(url, request, String.class);
+//        System.out.println("responseEntity.getBody() = " + responseEntity.getBody());
+//    }
+
 }

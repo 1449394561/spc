@@ -148,10 +148,9 @@ public class Cs23 {
         }
     }
 
-
+    //调用springaop
     @GetMapping("/aop")
     public void aop(){
         conferenceService.conference();
     }
-
 }

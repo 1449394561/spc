@@ -57,7 +57,7 @@
 		methods: {
 			addw(){
 				uni.request({
-					url:"/api/cs/add" + "?name=" + this.valiFormData.name,
+					url:"/apiResult/cs/add" + "?name=" + this.valiFormData.name,
 					success(res) {
 						console.log(res)
 					}
@@ -65,7 +65,7 @@
 			},
 			delete(){
 				uni.request({
-					url:"/api/cs/delete" + "/" + this.valiFormData.id,
+					url:"/apiResult/cs/delete" + "/" + this.valiFormData.id,
 					success: (res) =>{
 						console.log(res.data);
 						this.valiFormData.age=res.data.age
@@ -84,7 +84,7 @@
 			
 			query(){
 				uni.request({
-					url:"/api/cs/query",
+					url:"/apiResult/cs/query",
 					success: (res) =>{
 						console.log(res.data);
 						this.valiFormData.age=res.data.age
@@ -103,7 +103,7 @@
 			
 			update(){
 				uni.request({
-					url:"/api/cs/update",
+					url:"/apiResult/cs/update",
 					method:"POST",
 					data:JSON.stringify(this.valiFormData),
 					success: (res) =>{

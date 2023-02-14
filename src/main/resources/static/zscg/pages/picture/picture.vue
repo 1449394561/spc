@@ -57,7 +57,7 @@
 			},
 			query(){
 				uni.request({
-					url:"/api/cs23/query/14",
+					url:"/apiResult/cs23/query/14",
 					success: (res) =>{
 						this.form=res.data;
 						console.log(this.form);
