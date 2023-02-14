@@ -1,17 +1,20 @@
 package com.example.spc.controller;
 
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.spc.cs.aop.ConferenceServiceImpl;
 
 import com.example.spc.entity.Wcha;
 import com.example.spc.mapper.WchaMapper;
 import com.example.spc.util.NonStaticResourceHttpRequestHandler;
+import com.example.spc.util.mq.RabbitMQServiceImpl;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.ByteArrayOutputStream;
@@ -153,4 +156,43 @@ public class Cs23 {
     public void aop(){
         conferenceService.conference();
     }
+
+
+    @GetMapping("/war")
+    public Wcha warpper(){
+        QueryWrapper<Wcha> wrapper = new QueryWrapper();
+        wrapper.eq("name",666);
+        Wcha wcha = wchaMapper.selectOne(wrapper);
+        return wcha;
+    }
+
+    @GetMapping("/update")
+    public void update(){
+        Wcha wcha=new Wcha();
+        wcha.setId(11);
+        wcha.setName("666");
+        wcha.setAge(6);
+        wcha.setPassword("666");
+        wchaMapper.wupdate(wcha);
+    }
+
+
+    @GetMapping("/cc")
+    public String cc(){
+        String cc = wchaMapper.cc("888");
+        return cc;
+    }
+
+    //rabbitMQ
+        @Resource
+        private RabbitMQServiceImpl rabbitMQService;
+        /**
+         * 发送消息
+         * @author java技术爱好者
+         */
+        @PostMapping("/sendMsg")
+        public String sendMsg(@RequestParam(name = "msg") String msg) throws Exception {
+            return rabbitMQService.sendMsg(msg);
+        }
+
 }

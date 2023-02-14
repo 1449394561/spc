@@ -13,5 +13,7 @@ public interface WchaMapper extends BaseMapper<Wcha> {
 
     String getpassword(String name);
 
-    public Wcha cc(String name);
+    public String cc(String name);
+
+    public void wupdate(Wcha wcha);
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.spc.mapper.WchaMapper">
+
+    <select id="cc" parameterType="String" resultType="String">
+        select age from wcha where name=#{name}
+    </select>
+
+<!--    <update id="wupdate" parameterType="com.example.requsetapi.entity.Goods2">-->
+<!--        update goods-->
+<!--        <set>-->
+<!--            <if test="name != null">name=#{name},</if>-->
+<!--            <if test="age != null">age=#{age},</if>-->
+<!--            <if test="password != null">password=#{password},</if>-->
+<!--            &lt;!&ndash;            <if test="gender != null">gender=#{gender},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="userRole != null">userRole=#{userRole},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="modifyBy != null">modifyBy=#{modifyBy},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="modifyDate != null">modifyDate=#{modifyDate},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="address != null">address=#{address},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="phone != null">phone=#{phone},</if>&ndash;&gt;-->
+<!--            &lt;!&ndash;            <if test="birthday != null">birthday=#{birthday},</if>&ndash;&gt;-->
+<!--        </set>-->
+<!--        where id = #{id}-->
+<!--    </update>-->
+
+
+</mapper>
