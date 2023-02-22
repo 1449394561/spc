@@ -68,7 +68,7 @@ public class Cs23 {
         }
     }
 
-
+    //文件传输
     @PostMapping("/uploadImg")
     public String uploadImg(MultipartFile uploadFile, HttpServletRequest req){
 
@@ -126,7 +126,7 @@ public class Cs23 {
 
 
 
-
+    //视频传输
     @GetMapping("/video")
     public void videoPreview(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
