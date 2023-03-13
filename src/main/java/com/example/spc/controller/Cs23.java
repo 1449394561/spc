@@ -1,6 +1,11 @@
 package com.example.spc.controller;
 
 
+import com.alipay.api.AlipayApiException;
+import com.alipay.api.AlipayClient;
+import com.alipay.api.DefaultAlipayClient;
+import com.alipay.api.request.AlipayTradePrecreateRequest;
+import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.spc.cs.aop.ConferenceServiceImpl;
 
@@ -194,5 +199,8 @@ public class Cs23 {
         public String sendMsg(@RequestParam(name = "msg") String msg) throws Exception {
             return rabbitMQService.sendMsg(msg);
         }
+
+
+
 
 }
