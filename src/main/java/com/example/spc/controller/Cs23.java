@@ -1,11 +1,6 @@
 package com.example.spc.controller;
 
 
-import com.alipay.api.AlipayApiException;
-import com.alipay.api.AlipayClient;
-import com.alipay.api.DefaultAlipayClient;
-import com.alipay.api.request.AlipayTradePrecreateRequest;
-import com.alipay.api.response.AlipayTradePrecreateResponse;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.spc.cs.aop.ConferenceServiceImpl;
 
@@ -30,8 +25,10 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -52,6 +49,11 @@ public class Cs23 {
 
     SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");
 
+    @GetMapping("/ccc")
+    public List<Wcha> cp(@RequestBody Wcha name){
+        List<Wcha> wchas = wchaMapper.selectOrdersList(name);
+        return wchas;
+    }
 
     @GetMapping("/query/{id}")
     public String query(@PathVariable Integer id){
@@ -200,6 +202,15 @@ public class Cs23 {
             return rabbitMQService.sendMsg(msg);
         }
 
+        @PostMapping("/rsa")
+        public PublicKey RSA() throws NoSuchAlgorithmException {
+            KeyPairGenerator keyGen = KeyPairGenerator.getInstance("RSA");
+            keyGen.initialize(2048);
+            KeyPair keyPair = keyGen.generateKeyPair();
+            PublicKey publicKey = keyPair.getPublic();
+            PrivateKey privateKey = keyPair.getPrivate();
+            return publicKey;
+        }
 
 
 

@@ -7,7 +7,7 @@ import java.util.Map;
 import redis.clients.jedis.Jedis;
 
 
-//redis增删查改测试类
+//redis增删查改测试类（Jredis）
 public class TestRedis {
     public static void main(String[] args) {
         new TestRedis().save();

@@ -26,5 +26,38 @@
 <!--        where id = #{id}-->
 <!--    </update>-->
 
-
+    <select id="selectOrdersList" parameterType="com.example.spc.entity.Wcha" resultType="com.example.spc.entity.Wcha">
+        select id,name,age,password,picture from Wcha
+        <where>
+            <if test="id != null  and id != ''"> and id = #{id}</if>
+            <if test="name != null "> and name = #{name}</if>
+            <if test="age != null "> and age = #{age}</if>
+            <if test="password != null  and password != ''"> and password = #{password}</if>
+<!--            <if test="sendingcity != null  and sendingcity != ''"> and sendingCity = #{sendingcity}</if>-->
+<!--            <if test="sendingaddressdetails != null  and sendingaddressdetails != ''"> and sendingAddressDetails = #{sendingaddressdetails}</if>-->
+<!--            <if test="sendername != null  and sendername != ''"> and senderName like concat('%', #{sendername}, '%')</if>-->
+<!--            <if test="senderphonenumber != null  and senderphonenumber != ''"> and senderPhoneNumber = #{senderphonenumber}</if>-->
+<!--            <if test="receivingcity != null  and receivingcity != ''"> and receivingCity = #{receivingcity}</if>-->
+<!--            <if test="receivingaddressdetails != null  and receivingaddressdetails != ''"> and receivingAddressDetails = #{receivingaddressdetails}</if>-->
+<!--            <if test="receivingpartyname != null  and receivingpartyname != ''"> and receivingPartyName like concat('%', #{receivingpartyname}, '%')</if>-->
+<!--            <if test="receivingpartyphone != null  and receivingpartyphone != ''"> and receivingPartyPhone = #{receivingpartyphone}</if>-->
+<!--            <if test="receivingpartycompanyname != null  and receivingpartycompanyname != ''"> and receivingPartyCompanyName like concat('%', #{receivingpartycompanyname}, '%')</if>-->
+<!--            <if test="receivingpartyidnumber != null  and receivingpartyidnumber != ''"> and receivingPartyIDNumber = #{receivingpartyidnumber}</if>-->
+<!--            <if test="cargoname != null  and cargoname != ''"> and cargoName like concat('%', #{cargoname}, '%')</if>-->
+<!--            <if test="shipperunit != null  and shipperunit != ''"> and shipperUnit = #{shipperunit}</if>-->
+<!--            <if test="conversionrate != null "> and conversionRate = #{conversionrate}</if>-->
+<!--            <if test="reasonableloss != null "> and reasonableLoss = #{reasonableloss}</if>-->
+<!--            <if test="lossunit != null  and lossunit != ''"> and lossUnit = #{lossunit}</if>-->
+<!--            <if test="unitprice != null "> and unitPrice = #{unitprice}</if>-->
+<!--            <if test="vehicletype != null  and vehicletype != ''"> and vehicleType = #{vehicletype}</if>-->
+<!--            <if test="freightunitprice != null "> and freightUnitPrice = #{freightunitprice}</if>-->
+<!--            <if test="freightcalculationrule != null  and freightcalculationrule != ''"> and freightCalculationRule = #{freightcalculationrule}</if>-->
+<!--            <if test="loadingfee != null "> and loadingFee = #{loadingfee}</if>-->
+<!--            <if test="unloadingfee != null "> and unloadingFee = #{unloadingfee}</if>-->
+<!--            <if test="weightvolume != null  and weightvolume != ''"> and weightVolume = #{weightvolume}</if>-->
+<!--            <if test="vehiclelength != null  and vehiclelength != ''"> and vehicleLength = #{vehiclelength}</if>-->
+<!--            <if test="deliverydate != null "> and deliveryDate = #{deliverydate}</if>-->
+<!--            <if test="paymentpromisetime != null "> and paymentPromiseTime = #{paymentpromisetime}</if>-->
+        </where>
+    </select>
 </mapper>
