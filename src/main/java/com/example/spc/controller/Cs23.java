@@ -8,6 +8,9 @@ import com.example.spc.entity.Wcha;
 import com.example.spc.mapper.WchaMapper;
 import com.example.spc.util.NonStaticResourceHttpRequestHandler;
 import com.example.spc.util.mq.RabbitMQServiceImpl;
+import org.apache.ibatis.session.ExecutorType;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -27,10 +30,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/cs23")
@@ -45,6 +45,45 @@ public class Cs23 {
 
     @Autowired
     private ConferenceServiceImpl conferenceService;
+
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
+
+    @GetMapping("/po")
+    private String po(){
+        return "popoppo";
+    }
+
+
+    @GetMapping("/save1")
+    public String save1(){
+        Wcha questions = new Wcha();
+        questions.setName("pppp");
+
+        List<Wcha> userList = new LinkedList<>();
+        userList.add(questions);
+        userList.add(questions);
+        userList.add(questions);
+        userList.add(questions);
+        userList.add(questions);
+        userList.add(questions);
+        userList.add(questions);
+
+
+        try (SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.BATCH)) {
+            WchaMapper userMapper = sqlSession.getMapper(WchaMapper.class);
+            for (Wcha user : userList) {
+                userMapper.insert(user); // 执行单条插入
+            }
+            sqlSession.commit(); // 提交事务
+        } catch (Exception e) {
+            // 处理异常
+        }
+
+        return "ppp";
+
+    }
+
 
 
     SimpleDateFormat sd = new SimpleDateFormat("yyyy/MM/dd");

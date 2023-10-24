@@ -2,6 +2,7 @@ package com.example.spc.util;
 
 
 import lombok.Data;
+import org.apache.poi.ss.formula.functions.T;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,8 +22,18 @@ public class R {
     // 构造器私有
     private R(){}
 
+
     // 通用返回成功
     public static R ok() {
+        R r = new R();
+        r.setSuccess(ResultCodeEnum.SUCCESS.getSuccess());
+        r.setCode(ResultCodeEnum.SUCCESS.getCode());
+        r.setMessage(ResultCodeEnum.SUCCESS.getMessage());
+        return r;
+    }
+
+    // 通用返回成功
+    public static R ok(T data) {
         R r = new R();
         r.setSuccess(ResultCodeEnum.SUCCESS.getSuccess());
         r.setCode(ResultCodeEnum.SUCCESS.getCode());

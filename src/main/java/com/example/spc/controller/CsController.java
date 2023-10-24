@@ -32,9 +32,6 @@ public class CsController {
 
     @GetMapping("/cc")
     public String cc(){
-//        Cc cc=new Cc();
-//        cc.setOn("name");
-//        cc.setIn("888");
         System.out.println(wchaMapper.cc("888"));
         return "200";
     }
@@ -104,9 +101,6 @@ public class CsController {
 
     @PostMapping("/update")
     public String update(@RequestBody Wcha wcha){
-//        Wcha wcha1=new Wcha();
-//        wcha1.setId(id);
-//        wcha1.setName(wcha);
         wchaMapper.updateById(wcha);
         return "200";
     }
