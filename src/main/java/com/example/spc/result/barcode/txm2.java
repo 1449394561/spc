@@ -329,7 +329,7 @@ public class txm2 {
 
     public static void main(String[] args) {
 
-        byte[] bytes = generateBarEAN13("6901236340288", null, null, null, true, null);
+        byte[] bytes = generateBarEAN13("6901236340288", null, null, null, true, 10.2);
         // byte[]转base64
         String base64Str = Base64.getEncoder().encodeToString(bytes);
         ToImgUtil toImgUtil = new ToImgUtil();
